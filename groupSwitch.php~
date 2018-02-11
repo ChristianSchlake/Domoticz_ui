@@ -1,0 +1,7 @@
+<?php
+	$baseURL="http://192.168.2.110:8080";
+	$idx=$_GET['idx'];
+	$url=$baseURL."/json.htm?type=command&param=switchscene&idx=".$idx."&switchcmd=On";
+	$json = file_get_contents($url);
+	Header('Location: index.php');  
+?>

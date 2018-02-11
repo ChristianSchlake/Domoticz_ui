@@ -1,0 +1,16 @@
+<?php
+	$baseURL="http://192.168.2.110:8080";
+	$idx=$_GET["idx"];
+	$status=$_GET["status"];
+	$type=$_GET["type"];
+	switch ($type) {
+		case "Group":
+			$url=$baseURL."/json.htm?type=command&param=switchscene&idx=".$idx."&switchcmd=".$status;
+		break;
+		case "Light/Switch":		
+			$url=$baseURL."/json.htm?type=command&param=switchlight&idx=".$idx."&switchcmd=".$status;			
+		break;
+	}
+	$json = file_get_contents($url);
+	Header("Location: index.php");  
+?>
